@@ -1,0 +1,17 @@
+INSERT INTO membership (mem_ID, client_ID, status, date) 
+	VALUES
+	(1, "12345", "active", "april 18,2023"),
+	(2, "123456", "active", "april 18,2023"),
+    (3, "1234567", "active", "april 18,2023");
+    
+INSERT INTO trainor(trainor_ID, name, sched_ID, salary, email, password) 
+	VALUES 
+	("21212", "rein", "1", "999", "rein@yahoo.com", "siexnyaparin"),
+    ("21213", "ey", "2", "999", "ey@yahoo.com", "balut"),
+    ("21214", "lloyd", "3", "999", "lloyd@yahoo.com", "studentassistant");
+    
+INSERT INTO schedule (sched_ID, client_ID, trainor_ID, session, activity, date, time_start, time_end)  
+	VALUES
+    ("1","0102", "1", "21212", "1", "pushup", "2023/18/04", "01:50:00"),
+    ("2","0103", "2", "21213", "2", "burpes", "2023/18/05", "02:50:00"),
+    ("3","0104", "3", "21214", "3", "situps", "2023/18/06", "03:50:00");
