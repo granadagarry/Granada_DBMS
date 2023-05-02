@@ -1,0 +1,39 @@
+CREATE DATABASE longtest;
+USE longtest
+
+CREATE TABLE student(
+    StudNo varchar(25) PRIMARY KEY
+    StudFname varchar(25) 
+    Studlname varchar(25)
+    Major varchar(25)
+    Gender enum ('Male','Female')
+    Homeaddres varchar (25)
+)
+
+CREATE TABLE subject(
+    SubjectCode varchar (25) PRIMARY KEY,
+    SubjectDescr varchar (25)
+)
+
+CREATE TABLE grade(
+    StudNo varchar (25)
+    SubjectCode varchar(25)
+    Grade varchar (25)
+    CONTAINS fk_student_StudentNo_SubjectCode FOREIGN KEY (StudNo) REFERENCES student (Studno),
+    CONTAINS fk_grade_Subject_SubjectCode FOREIGN KEY (SubjectCode) REFERENCES subject (SubjectCode),
+)
+
+INSERT INTO student(StudNo,StudFname,StudLname,Major,Gender,HomeAddress)
+	VALUES 
+    ("S-101", "Ana", "Cruz", "ECE","F","Malolos, Bulacan"),
+    ("S-102", "hazel", "Ponce", "ECE","F","Malolos, Bulacan"),
+    ("S-103", "cristov", "Poncio", "ECE","F","Malolos, Bulacan"),
+    ("S-104", "aris", "Plavio", "ECE","F","Malolos, Bulacan"),
+    ("S-105", "honey", "pelayo", "ECE","F","Malolos, Bulacan"),
+    ("S-106", "carrie", "abao", "ECE","F","Malolos, Bulacan");
+
+INSERT INTO subject(SubjectCode,SubjectDescr)
+VALUE
+	("chem123","Chemistry"),
+    ("math122","trigonometry"),
+    ("math123","algebra");
