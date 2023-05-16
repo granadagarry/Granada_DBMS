@@ -1,0 +1,35 @@
+DROP DATABASE IF EXISTS cookies;
+
+CREATE DATABASE cookies;
+USE cookies;
+
+CREATE TABLE student(
+    StudNo varchar(50) PRIMARY KEY,
+    StudFName varchar(50),
+    StudLName varchar(50),
+    HomeAddress varchar(50),
+    Gender ENUM ('Male','Female')
+);
+
+CREATE TABLE subject(
+    SubjCode varchar(50) PRIMARY KEY,
+    SubjDescr varchar(50),
+    StudNo varchar(50),
+    CONSTRAINT subjStudNo FOREIGN KEY (StudNo) REFERENCES student(StudNo)
+);
+
+CREATE TABLE course(
+    Major varchar(50) PRIMARY KEY,
+    SubjCode varchar(50),
+    StudNo varchar(50),
+    CONSTRAINT courseSubjcode FOREIGN KEY (SubjCode) REFERENCES subject(SubjCode),
+    CONSTRAINT courseStudNo FOREIGN KEY (StudNo) REFERENCES student(StudNo)
+);
+
+CREATE TABLE grade(
+    GradeID varchar(50) PRIMARY KEY,
+    SubjCode varchar(50),
+    StudNo varchar(50),
+    CONSTRAINT gradeStudNo FOREIGN KEY (StudNo) REFERENCES student(StudNo),
+    CONSTRAINT gradeSubjCode FOREIGN KEY (SubjCode) REFERENCES Subject(SubjCode)
+);
