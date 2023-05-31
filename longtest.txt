@@ -1,27 +1,28 @@
+DROP DATABASE if EXISTS longtest;
 CREATE DATABASE longtest;
-USE longtest
+USE longtest;
 
 CREATE TABLE student(
-    StudNo varchar(25) PRIMARY KEY
-    StudFname varchar(25) 
-    Studlname varchar(25)
-    Major varchar(25)
-    Gender enum ('Male','Female')
-    Homeaddres varchar (25)
-)
+    StudNo varchar(25) PRIMARY KEY,
+    StudFname varchar(25),
+    Studlname varchar(25),
+    Major varchar(25),
+    Gender enum ('Male','Female'),
+    Homeaddress varchar (25)
+);
 
 CREATE TABLE subject(
     SubjectCode varchar (25) PRIMARY KEY,
     SubjectDescr varchar (25)
-)
+);
 
 CREATE TABLE grade(
-    StudNo varchar (25)
-    SubjectCode varchar(25)
-    Grade varchar (25)
-    CONTAINS fk_student_StudentNo_SubjectCode FOREIGN KEY (StudNo) REFERENCES student (Studno),
-    CONTAINS fk_grade_Subject_SubjectCode FOREIGN KEY (SubjectCode) REFERENCES subject (SubjectCode),
-)
+    StudNo varchar (25),
+    SubjectCode varchar(25),
+    Grade varchar (25),
+    CONSTRAINT fk_student_StudentNo_SubjectCode FOREIGN KEY (StudNo) REFERENCES student (Studno),
+    CONSTRAINT fk_grade_Subject_SubjectCode FOREIGN KEY (SubjectCode) REFERENCES subject (SubjectCode)
+);
 
 INSERT INTO student(StudNo,StudFname,StudLname,Major,Gender,HomeAddress)
 	VALUES 
