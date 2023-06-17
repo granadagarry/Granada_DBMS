@@ -1,0 +1,28 @@
+DROP DATABASE if EXISTS granada_finals;
+CREATE DATABASE granada_finals;
+USE granada_finals;
+
+CREATE TABLE agent_data(
+    agent_code varchar(25) PRIMARY KEY NOT NULL,
+    agent_name varchar(25) NOT NULL,
+    working_area varchar(25) NOT NULL,
+    commission varchar (25) NOT NULL,
+    phone_no varchar(25) NOT NULL,
+    country varchar(25) NOT NULL
+);
+
+CREATE TABLE customer_data(
+    agent_code varchar(25) NOT NULL,
+    cust_code varchar(25) PRIMARY KEY NOT NULL,
+    cust_name varchar(25) NOT NULL,
+    cust_city varchar(25) NOT NULL,
+    working_area varchar(25) NOT NULL,
+    cust_country varchar(25) NOT NULL,
+    grade int (25) NOT NULL,
+    opening_amt int NOT NULL,
+    receive_amt int NOT NULL,
+    payment_amt int NOT NULL,
+    outstanding_amt int NOT NULL,
+    phone_no int NOT NULL,
+    CONSTRAINT fk_customer_data_agent_code_data_agent_code FOREIGN KEY (agent_code) REFERENCES agent_data (agent_code)
+);

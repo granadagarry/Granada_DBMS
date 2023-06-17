@@ -1,0 +1,4 @@
+A. SELECT (SELECT agent_code FROM agent_data) FROM customer_data WHERE cust_code = 1
+B. UPDATE customer_data SET payment_amt = 4500 WHERE agent_code = "A007"
+C. SELECT * FROM customer_data INNER JOIN agent_data ON customer_data.agent_code = agent_data.agent_code WHERE agent_data.commission < 0.14 AND payment_amt > 4500
+D. SELECT cust_name, customer_data.working_area, outstanding_amt, agent_name FROM customer_data INNER JOIN agent_data ON customer_data.agent_code = agent_data.agent_code
